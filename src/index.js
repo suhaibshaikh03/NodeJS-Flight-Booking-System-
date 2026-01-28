@@ -1,12 +1,15 @@
 const express = require('express');
-const { PORT } = require('./config')
-const app = express()
+const { ServerConfig } = require('./config')
+const apiRoutes = require("./routes")
 
 
+const app = express();
 
+app.use('/api',apiRoutes);
 
+ 
 
-app.listen(PORT, () => {
-    console.log(`Server is listening at http://localhost:${PORT}`)
-
+app.listen(ServerConfig.PORT, () => {
+    console.log(`Server is listening at http://localhost:${ServerConfig.PORT}`)
+    
 })
